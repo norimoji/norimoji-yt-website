@@ -1,6 +1,32 @@
+.website-title{
+    font-weight:bold;
+    display:block;
+}
+.example-icon {
+  padding: 0 14px;
+}
 
+.background-shadow{
+  box-shadow: 0 8px 10px 8px rgba(0, 0, 0, 0.14), 0 3px 14px 4px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.3); 
+}
 
-body {
-    padding: 2em 23em;
-    background:#ffecb3;
+.toolbar{
+  
+}
+
+.display-cards{
+  
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.tab-group{
+  background: white;
+ 
+}
+
+.isDarkTheme{
+  background: grey;
 }

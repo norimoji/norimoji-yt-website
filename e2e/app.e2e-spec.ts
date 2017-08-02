@@ -1,14 +1,14 @@
-import { WebsitePage } from './app.po';
+import { WebPage } from './app.po';
 
-describe('website App', function() {
-  let page: WebsitePage;
+describe('web App', () => {
+  let page: WebPage;
 
   beforeEach(() => {
-    page = new WebsitePage();
+    page = new WebPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('app works!');
+    expect(page.getParagraphText()).toEqual('Welcome to app!!');
   });
 });
