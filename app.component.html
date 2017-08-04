@@ -1,0 +1,86 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../assets/youtubescript.js"></script>
+<script src="https://apis.google.com/js/client.js?onload=googleApiClientReady"></script>
+
+<div class = background-shadow [class.dark-theme]="isDarkTheme">
+
+<md-toolbar class="toolbar" color="primary" style ="min-height: 30px">
+    <span class="website-title">theNorimoji Youtube Website</span>
+    <span class="example-spacer"></span>
+    <button md-button (click)="isDarkTheme=!isDarkTheme">{{isDarkTheme ? 'Toogle light-theme' : 'Toogle dark-theme'}}</button>
+    <button md-button [mdMenuTriggerFor]="appMenu">Menu <md-icon>more_vert</md-icon></button>
+</md-toolbar>
+
+<md-menu #appMenu="mdMenu">
+  <button md-menu-item>
+     <md-icon>open_in_browser</md-icon>
+     <span>Youtube Page</span>
+  </button>
+  <button md-menu-item> Help </button>
+</md-menu>
+
+<md-tab-group class="tab-group" [ngClass]="{
+  isDarkTheme:isDarkTheme
+  }">
+  
+  <md-tab label="Uploads" position=center>
+  <md-card class="display-cards" *ngFor=" let data of (results | async) ">
+    
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{data.snippet.title}}</md-card-title>
+    <md-card-subtitle>{{data.snippet.description}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="data.snippet.thumbnail.maxres.url" id="results">
+  <md-card-content>
+    <p>
+      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+      bred for hunting.
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+    <button md-button>NEXT</button>
+  </md-card-actions>
+  
+</md-card>
+
+</md-tab>
+  <md-tab label="About Me">
+  <md-card class="display-cards">
+     <div>
+         <h1>About Me</h1>
+        </div>
+  <md-card-header>
+         <div md-card-avatar class="example-header-image"></div>
+  <md-card-title>Youtube Name</md-card-title>
+    <md-card-subtitle>Subscribers</md-card-subtitle>
+  </md-card-header>
+  
+  <md-card-content>
+    <p>
+      My Biography.
+    </p>
+  </md-card-content>
+</md-card>
+</md-tab>
+<md-tab label="Settings">
+  <md-card class="display-cards">
+   <div id="page-padding">
+      <h1>Settings</h1>
+      <p>Here you can control the various settings associated with your app. There's no need to hit a save button, as the values are updated automatically.</p>
+      <label>Number of Thumbnails</label>
+      <md-slider
+          showTicks="true" max="100" min="0" step="1" thumbLabel="true" value="18">
+      </md-slider>
+      <md-slide-toggle>Some setting</md-slide-toggle>
+    </div>
+  </md-card>
+</md-tab>
+</md-tab-group>
+
+</div>
+
+
